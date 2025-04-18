@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <form id="validateForm">
+        <input type="text" id="nameInput" placeholder="Enter your name">
+        <input type="email" id="emailInput" placeholder="Enter your email">
+        <input type="number" id="ageInput" placeholder="Enter your age">
+        <input type="text" id="cityInput" placeholder="Enter your city">
+        <button type="submit">Submit</button>
+      </form>
+<script>
+    const form = document.getElementById('validateForm');
+const nameInput = document.getElementById('nameInput');
+const emailInput = document.getElementById('emailInput');
+const ageInput = document.getElementById('ageInput');
+const cityInput = document.getElementById('cityInput');
+
+form.addEventListener('submit', function(event) {
+    event.preventDefault(); // prevent default form submission
+
+    // Validation checks
+    if (nameInput.value.trim() === '') {
+        alert('Name is required!');
+        return;
+    }
+
+    if (ageInput.value.trim() === '' || isNaN(ageInput.value) || ageInput.value <= 0) {
+        alert('Please enter a valid age!');
+        return;
+    }
+
+    if (cityInput.value.trim() === '') {
+        alert('City is required!');
+        return;
+    }
+
+    // If all fields are valid
+    console.log('Name:', nameInput.value);
+    console.log('Email:', emailInput.value);
+    console.log('Age:', ageInput.value);
+    console.log('City:', cityInput.value);
+
+    alert('Form submitted successfully!');
+});
+
+</script>      
+</body>
+</html>

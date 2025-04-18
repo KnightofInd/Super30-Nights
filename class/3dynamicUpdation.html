@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <form id="dynamicForm">
+        <input type="text" id="nameInput" placeholder="Enter your name">
+        <input type="email" id="emailInput"  placeholder="Enter your email">
+        <input type="number" id="ageInput" placeholder="Enter your age">
+        <input type="text" id="cityInput" placeholder="Enter your city">
+        <button type="submit">Submit</button>
+      </form>
+      
+      <div id="Output">
+         <h1>Go and wash your face </h1>
+      </div>
+<script>
+    const form = document.getElementById('dynamicForm');
+const outputSection = document.getElementById('outputSection');
+
+form.addEventListener('submit', function(event) {
+    event.preventDefault(); // Stop page reload
+    console.log('Form submitted. Processing...');
+
+    // Fetch values
+    const name = document.getElementById('nameInput').value;
+    const email = document.getElementById('emailInput').value;
+    const age = document.getElementById('ageInput').value;
+    const city = document.getElementById('cityInput').value;
+
+    console.log('Fetched Data:');
+    console.log('Name:', name);
+    console.log('Email:', email);
+    console.log('Age:', age);
+    console.log('City:', city);
+
+    // Create a new paragraph to display the data
+    const newEntry = document.createElement('p');
+    newEntry.textContent = `Name: ${name}, Email: ${email}, Age: ${age}, City: ${city}`;
+    Output.appendChild(newEntry);
+
+    console.log('Data dynamically added to the page!');
+    
+    // Optionally clear the form after submission
+    form.reset();
+    console.log('Form cleared for next entry.');
+});
+
+</script>      
+</body>
+</html>
